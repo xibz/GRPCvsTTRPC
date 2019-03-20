@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package models;
+
+service Route {
+	rpc GetData(GetDataRequest) returns (GetDataResponse) {}
+	rpc PutData(PutDataRequest) returns (PutDataResponse) {}
+}
+
+message GetDataRequest {
+	string Key = 1;
+}
+
+message GetDataResponse {
+	Data Data = 1;
+}
+
+message PutDataRequest {
+	string Key = 1;
+	Data Data = 2;
+}
+
+message PutDataResponse {
+}
+
+message Data {
+	string StringShape = 1;
+	int32 IntShape = 2;
+	double DoubleShape = 3;
+	bool BoolShape = 4;
+	bytes BytesShape = 5;
+	repeated NestedShape Shapes = 6;
+}
+
+message NestedShape {
+	int32 NestedInt = 1;
+	bytes NestedBytes = 2;
+}
