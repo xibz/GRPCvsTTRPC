@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package models;
+package grpcmodels;
 
 service Route {
 	rpc GetData(GetDataRequest) returns (GetDataResponse) {}
